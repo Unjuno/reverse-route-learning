@@ -12,9 +12,9 @@ The base checkpoint is needed in the experiments to create known post-training c
 
 ## Historical provenance is not generally identified
 
-A final checkpoint may admit multiple coherent alternatives that can be locally strengthened. The current post-only signals do not always determine whether a route is specifically inherited from an unknown pre-post-training checkpoint or is simply easy to learn/reinforce now.
+A final checkpoint may admit multiple coherent alternatives that can be locally strengthened. The current post-only signals do not always determine whether a route is specifically inherited from an unknown pre-post-training checkpoint or is simply easy to learn or reinforce now.
 
-Failed historical fingerprints include:
+Historical fingerprints that did not separate the tested conditions reliably include:
 
 - intrinsic forced-trajectory normality;
 - tiny local repair gain;
@@ -33,11 +33,15 @@ The real-model results currently use TinyStories-8M and controlled asymmetric SF
 
 ## Search compute is not optimized
 
-Counterfactual candidate rollouts can be expensive. The repository prioritizes demonstrating the phenomenon and the intervention principle, not minimizing FLOPs. Adaptive stopping, KV reuse, candidate pruning, and batching are open optimization directions.
+Counterfactual candidate rollouts can be expensive. The repository prioritizes demonstrating the phenomenon and the intervention principle, not minimizing FLOPs. Search-cost scaling and efficient approximations remain unresolved.
 
 ## Repair can overshoot
 
 Aggressive candidate-set repair can move the entry distribution substantially beyond the base oracle. A KL stopping threshold helps control intervention size but does not guarantee recovery to the historical base state.
+
+## Current false negatives
+
+Under the fixed v0.1 protocol, routes such as `park -> slide` and `play -> meet` retain measurable forced downstream capability but are not selected by the present Top-3 union detector. These cases are part of the documented capability boundary rather than excluded from the results.
 
 ## Safety and deployment
 
