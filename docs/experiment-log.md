@@ -15,5 +15,6 @@ The internal experiment numbers (`TBxx`) are kept here so raw result files and r
 | TB100–TB106 | Strength, repair cost, KL stopping, fresh branches | Closure correlates with repair cost; base-free KL budget controls intervention strength; reconvergence has divergent-route failures. |
 | TB107–TB111 | Can intrinsic normality recover divergent routes and distinguish recoverability? | Finds coherent alternatives, but fails as historical-recoverability discriminator. |
 | TB112–TB113 | Can cross-context internal traces identify historical preservation? | No; direction consistency and repair transfer remain strong even after deeper erosion. |
+| TB114 | What can the current public heuristic actually do under one fixed protocol? | Establishes the v0.1 capability boundary: clear, partial, false-negative, and deep-eroded cases under the same post-only selection and KL-bounded repair rule. |
 
-Selected raw JSONs are included under `results/tinystories/`. The repository does not include every exploratory artifact from the research session.
+Selected raw JSONs are included under `results/tinystories/`. The repository does not include every exploratory artifact from the research session. Numerical comparisons should use results produced under the same protocol; TB114 is the primary fixed-protocol v0.1 benchmark.
