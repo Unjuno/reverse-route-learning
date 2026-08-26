@@ -2,7 +2,7 @@
 
 **Experimental research code for discovering and reopening latent model routes suppressed by post-training through counterfactual trajectory probing.**
 
-> Status: **v0.1 experimental / proof of concept.** The project demonstrates route suppression, post-only candidate discovery, and partial reopening on controlled TinyStories-8M experiments. It does **not** claim exact reconstruction of an unknown pretrained checkpoint.
+> Status: **v0.1 experimental / proof of concept. Replication is explicitly wanted.** The project demonstrates route suppression, post-only candidate discovery, and partial reopening on controlled TinyStories-8M experiments. It does **not** claim exact reconstruction of an unknown pretrained checkpoint. The main goal is to show that this direction is technically possible and leave better search, scaling, and optimization to follow-up work.
 
 ## What this project studies
 
@@ -19,6 +19,12 @@ The working procedure is:
 7. re-observe the model and repeat when multiple barriers exist.
 
 The base checkpoint is used in controlled experiments to construct post-training conditions and to score recovery **afterward**. It is not used by the blind candidate ranking or repair target selection.
+
+## What works today / what does not
+
+A fixed-protocol capability-boundary run is summarized in [docs/current-capability-boundary.md](docs/current-capability-boundary.md). In the present TinyStories-8M setup, some routes are found and partially reopened post-only, while other still-usable routes are missed by the current search heuristic, and deep-eroded controls cannot be distinguished reliably from coherent alternatives.
+
+This is intentional: the repository is meant as a reproducible **existence proof and exploration record**, not a finished recovery product. Independent replications, better search procedures, longer-horizon probes, and cross-model tests are especially welcome.
 
 ## Main empirical results so far
 
@@ -131,6 +137,7 @@ The repair objective uses only the scanner-selected candidate IDs. The known B t
 - `docs/method.md` — method and terminology.
 - `docs/findings.md` — consolidated empirical findings.
 - `docs/limitations.md` — what is not established.
+- `docs/current-capability-boundary.md` — fixed-protocol TinyStories-8M success/failure boundary.
 - `docs/experiment-log.md` — compact chronology of the TB experiment series.
 
 ## Scope and claims
@@ -150,6 +157,19 @@ Not established:
 - universal recovery across arbitrary models, post-training recipes, or capabilities;
 - efficient scaling to large language models;
 - a guarantee that a coherent post-only alternative was historically present before post-training.
+
+## Replication wanted
+
+If you reproduce, falsify, or improve these results, please open an issue with:
+
+- model / checkpoint and exact revision;
+- hardware and software versions;
+- post-training recipe;
+- candidate-search settings and horizon;
+- raw result JSON or equivalent measurements;
+- whether the suppressed route was found, reopened, missed, or contradicted.
+
+Negative replications are useful. The most valuable next tests are independent TinyStories reproduction, alternative small Transformers, and better search rules for `slide` / `meet`-type false negatives.
 
 ## Model and license
 
