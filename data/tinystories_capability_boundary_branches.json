@@ -1,0 +1,74 @@
+[
+  {
+    "prefix_ids": [7454, 612, 373, 257, 1611, 1468, 582, 508, 5615, 287, 257, 1402],
+    "prefix": "Once there was a kind old man who lived in a small",
+    "A_id": 3240,
+    "A_text": " town",
+    "B_id": 7404,
+    "B_text": " village",
+    "original_case_id": 49
+  },
+  {
+    "prefix_ids": [43, 813, 290, 4186, 1816, 284, 262, 3952, 284, 711, 351, 262],
+    "prefix": "Lily and Tom went to the park to play with the",
+    "A_id": 3952,
+    "A_text": " park",
+    "B_id": 10649,
+    "B_text": " slide",
+    "original_case_id": 43
+  },
+  {
+    "prefix_ids": [7454, 2402, 257, 640, 11, 612, 373, 257, 1310, 2576, 3706, 20037, 13, 1375, 373, 845, 6568, 284, 711, 351, 607, 2460, 13, 1375, 373, 845, 6568, 284],
+    "prefix": "Once upon a time, there was a little girl named Lily. She was very excited to play with her friends. She was very excited to",
+    "A_id": 711,
+    "A_text": " play",
+    "B_id": 1826,
+    "B_text": " meet",
+    "original_case_id": 17
+  },
+  {
+    "prefix_ids": [3198, 1110, 11, 257, 1310, 2933, 373, 6155, 287, 262, 8222, 618, 339, 2497, 257],
+    "prefix": "One day, a little boy was walking in the forest when he saw a",
+    "A_id": 1310,
+    "A_text": " little",
+    "B_id": 1263,
+    "B_text": " big",
+    "original_case_id": 19
+  },
+  {
+    "prefix_ids": [464, 1310, 3290, 373, 845, 3772, 780],
+    "prefix": "The little dog was very happy because",
+    "A_id": 339,
+    "A_text": " he",
+    "B_id": 340,
+    "B_text": " it",
+    "original_case_id": 31
+  },
+  {
+    "prefix_ids": [464, 1310, 3290, 373, 845, 3772, 780, 339, 373, 523, 6568, 284],
+    "prefix": "The little dog was very happy because he was so excited to",
+    "A_id": 766,
+    "A_text": " see",
+    "B_id": 307,
+    "B_text": " be",
+    "original_case_id": 36
+  },
+  {
+    "prefix_ids": [7454, 612, 373, 257, 1611, 1468, 582, 508, 5615, 287, 257, 1402, 3240, 13, 679, 373, 257, 1310],
+    "prefix": "Once there was a kind old man who lived in a small town. He was a little",
+    "A_id": 2933,
+    "A_text": " boy",
+    "B_id": 2576,
+    "B_text": " girl",
+    "original_case_id": 54
+  },
+  {
+    "prefix_ids": [7454, 2402, 257, 640, 11, 612, 373, 257, 1310, 2576, 3706],
+    "prefix": "Once upon a time, there was a little girl named",
+    "A_id": 20037,
+    "A_text": " Lily",
+    "B_id": 22162,
+    "B_text": " Lucy",
+    "original_case_id": 0
+  }
+]
