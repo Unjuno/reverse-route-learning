@@ -47,4 +47,4 @@ The table therefore measures **operational reopening under a fixed post-only heu
 
 The present evidence supports a narrower claim: **some post-training accessibility barriers can be found and partially reopened from the post-trained Transformer itself.** The current search rule has meaningful false negatives and cannot, by itself, establish historical recoverability.
 
-This is the intended boundary of the v0.1 proof of concept. Better candidate search, longer-horizon probing, representation metrics, and cross-model replication are explicitly left open for follow-up work.
+This page records the intended boundary of the v0.1 proof of concept. Unresolved cases include false-negative route search, long- or divergent-trajectory detection, historical-identifiability limits, cross-model generality, and search cost.
