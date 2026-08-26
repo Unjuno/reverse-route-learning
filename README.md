@@ -4,6 +4,12 @@
 
 > Status: **v0.1 experimental / proof of concept.** The project demonstrates route suppression, post-only candidate discovery, and partial reopening on controlled TinyStories-8M experiments. It does **not** claim exact reconstruction of an unknown pretrained checkpoint or a universal recovery method.
 
+## TL;DR
+
+In controlled TinyStories-8M experiments, post-training can strongly suppress access to a semantic route while a usable downstream generator still remains behind that barrier. We show that, for some such routes, the **post-trained checkpoint alone** is sufficient to rank plausible hidden alternatives with counterfactual trajectory probes and to partially reopen them with a small local intervention. The base checkpoint is used only to construct controlled conditions and to score recovery afterward, not for blind candidate ranking or repair-target selection.
+
+The strongest fixed-protocol example currently recovers about **73% of the base-vs-post entry gap** for `town -> village` under an entry-distribution KL budget of about `0.05`. Other residual routes are missed by the current scanner, and historically identifying whether every coherent candidate truly existed in the unknown pre-post-training model remains unresolved. This repository is therefore an **existence proof and exploration record**, not a finished recovery system.
+
 ## What this project studies
 
 Fine-tuning can make a model stop choosing a semantic continuation even when a compatible downstream generator remains usable if the suppressed branch is forced. This project studies that gap between **accessibility** and **capability**.
