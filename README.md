@@ -2,7 +2,7 @@
 
 **Experimental research code for discovering and reopening latent model routes suppressed by post-training through counterfactual trajectory probing.**
 
-> Status: **v0.1 experimental / proof of concept. Replication is explicitly wanted.** The project demonstrates route suppression, post-only candidate discovery, and partial reopening on controlled TinyStories-8M experiments. It does **not** claim exact reconstruction of an unknown pretrained checkpoint. The main goal is to show that this direction is technically possible and leave better search, scaling, and optimization to follow-up work.
+> Status: **v0.1 experimental / proof of concept.** The project demonstrates route suppression, post-only candidate discovery, and partial reopening on controlled TinyStories-8M experiments. It does **not** claim exact reconstruction of an unknown pretrained checkpoint or a universal recovery method.
 
 ## What this project studies
 
@@ -16,17 +16,30 @@ The working procedure is:
 4. measure the downstream trajectory (distribution / hidden-state geometry);
 5. rank plausible latent routes using post-only signals;
 6. locally reopen a small candidate set;
-7. re-observe the model and repeat when multiple barriers exist.
+7. re-observe the model when multiple barriers may exist.
 
 The base checkpoint is used in controlled experiments to construct post-training conditions and to score recovery **afterward**. It is not used by the blind candidate ranking or repair target selection.
 
-## What works today / what does not
+## Current capability boundary
 
-A fixed-protocol capability-boundary run is summarized in [docs/current-capability-boundary.md](docs/current-capability-boundary.md). In the present TinyStories-8M setup, some routes are found and partially reopened post-only, while other still-usable routes are missed by the current search heuristic, and deep-eroded controls cannot be distinguished reliably from coherent alternatives.
+The present fixed-protocol benchmark is documented in [docs/current-capability-boundary.md](docs/current-capability-boundary.md).
 
-This is intentional: the repository is meant as a reproducible **existence proof and exploration record**, not a finished recovery product. Independent replications, better search procedures, longer-horizon probes, and cross-model tests are especially welcome.
+Under one fixed post-only heuristic on TinyStories-8M:
 
-## Main empirical results so far
+| Route | Condition | Selected? | Oracle recovery at ~0.05 KL |
+| --- | --- | --- | ---: |
+| `town -> village` | shallow / reconvergent | yes | **73.1%** |
+| `little -> big` | shallow / divergent | yes | **29.6%** |
+| `boy -> girl` | shallow / reconvergent | yes | **15.9%** |
+| `Lily -> Lucy` | shallow / reconvergent | yes | **8.2%** |
+| `park -> slide` | residual capability remains | no | 4.1% |
+| `play -> meet` | residual capability remains | no | 1.9% |
+| `he -> it` | deep-eroded | yes | 2.4% |
+| `see -> be` | deep-eroded | no | 0.7% |
+
+This table is the intended v0.1 boundary: **some suppressed routes can be found and partially reopened from the post-trained model itself, while other still-usable routes are missed by the current search rule, and historical recoverability is not reliably identifiable from the final checkpoint alone.**
+
+## Main empirical results
 
 ### TinyStories-8M Transformer
 
@@ -41,9 +54,9 @@ A fresh post-only reconvergence scan over 64 subdominant candidates found the kn
 | `town -> village` | 8.1x | **2 / 64** |
 | `boy -> girl` | 83.6x | **3 / 64** |
 
-For `village` and `girl`, the scanner-selected top-3 candidate set was repaired **without using the identity of B in the repair objective**. The true suppressed branch reopened strongly, although the first naive repair overshot the original base probability. A post-only KL stopping threshold then provided a controllable intervention budget.
+For `village` and `girl`, the scanner-selected top-3 candidate set was repaired **without using the identity of B in the repair objective**. The true suppressed branch reopened strongly, although the first naive repair overshot the original base probability.
 
-Examples from the initial blind repair:
+Initial blind-repair examples:
 
 - `town -> village`: `p(B)` 0.0203 after SFT -> 0.6228 after blind candidate-set repair (base oracle: 0.1646).
 - `boy -> girl`: `p(B)` 0.00554 after SFT -> 0.7422 after blind candidate-set repair (base oracle: 0.4631).
@@ -67,7 +80,7 @@ Distribution reconvergence (Jensen-Shannon distance between next-token distribut
 
 ## Important negative results
 
-This repository intentionally keeps the failure modes visible:
+The repository keeps failure modes visible:
 
 - **Extreme low-logit search is not enough.** Random irrelevant tokens are often much lower probability than the suppressed semantic route.
 - Candidate causal-graph centrality did not identify true routes in controlled tests.
@@ -128,6 +141,14 @@ python experiments/tinystories/blind_repair.py \
 
 The repair objective uses only the scanner-selected candidate IDs. The known B token is read only after the run for controlled oracle evaluation.
 
+### 5. Run the fixed capability-boundary benchmark
+
+```bash
+python experiments/tinystories/capability_boundary.py \
+  --model models/TinyStories-8M/pytorch_model.bin \
+  --output results/tinystories/repro_capability_boundary.json
+```
+
 ## Repository map
 
 - `src/reverse_route_learning/` — minimal TinyStories GPT-Neo runtime and metrics.
@@ -158,18 +179,9 @@ Not established:
 - efficient scaling to large language models;
 - a guarantee that a coherent post-only alternative was historically present before post-training.
 
-## Replication wanted
+## Open questions
 
-If you reproduce, falsify, or improve these results, please open an issue with:
-
-- model / checkpoint and exact revision;
-- hardware and software versions;
-- post-training recipe;
-- candidate-search settings and horizon;
-- raw result JSON or equivalent measurements;
-- whether the suppressed route was found, reopened, missed, or contradicted.
-
-Negative replications are useful. The most valuable next tests are independent TinyStories reproduction, alternative small Transformers, and better search rules for `slide` / `meet`-type false negatives.
+The current unresolved points are recorded in [Issue #1](https://github.com/Unjuno/reverse-route-learning/issues/1) and in the limitations document. The most important ones are the false-negative `slide` / `meet`-type routes, historical-identifiability limits, cross-model generality, and search cost. They are presented as the current boundary of the proof of concept rather than as a required roadmap.
 
 ## Model and license
 
@@ -179,4 +191,4 @@ Project code and original documentation in this repository are licensed under **
 
 ## Research status
 
-This is an exploratory public research repository. Results and interfaces may change as experiments continue. Pull requests that improve reproduction, compute efficiency, alternative route metrics, or cross-model validation are welcome.
+This repository is an exploration record and proof of concept. The goal is to document that the phenomenon and intervention are possible under the tested conditions, together with the cases where the present method fails.
