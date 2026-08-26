@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: Reverse Route Learning
+message: "If you use this experimental code or results, please cite this repository."
+type: software
+authors:
+  - name: Unjuno
+version: 0.1.0
+date-released: 2026-08-26
+url: https://github.com/Unjuno/reverse-route-learning
+license: Apache-2.0

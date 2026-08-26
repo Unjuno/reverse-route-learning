@@ -1,0 +1,54 @@
+[
+  {
+    "prompt_i": 0,
+    "pos": 10,
+    "prefix_ids": [7454, 2402, 257, 640, 11, 612, 373, 257, 1310, 2576, 3706],
+    "prefix": "Once upon a time, there was a little girl named",
+    "A_id": 20037,
+    "A_p": 0.1643260270357132,
+    "A_text": " Lily",
+    "B_id": 22162,
+    "B_p": 0.06278212368488312,
+    "B_text": " Lucy",
+    "original_case_id": 0
+  },
+  {
+    "prompt_i": 1,
+    "pos": 22,
+    "prefix_ids": [3198, 1110, 11, 257, 1310, 2933, 373, 6155, 287, 262, 8222, 618, 339, 2497, 257, 1310, 2576, 13, 679, 373, 6155, 287, 262],
+    "prefix": "One day, a little boy was walking in the forest when he saw a little girl. He was walking in the",
+    "A_id": 16479,
+    "A_p": 0.17380712926387787,
+    "A_text": " woods",
+    "B_id": 8222,
+    "B_p": 0.10839914530515671,
+    "B_text": " forest",
+    "original_case_id": 27
+  },
+  {
+    "prompt_i": 4,
+    "pos": 11,
+    "prefix_ids": [7454, 612, 373, 257, 1611, 1468, 582, 508, 5615, 287, 257, 1402],
+    "prefix": "Once there was a kind old man who lived in a small",
+    "A_id": 3240,
+    "A_p": 0.1671813577413559,
+    "A_text": " town",
+    "B_id": 7404,
+    "B_p": 0.1646195948123932,
+    "B_text": " village",
+    "original_case_id": 49
+  },
+  {
+    "prompt_i": 4,
+    "pos": 17,
+    "prefix_ids": [7454, 612, 373, 257, 1611, 1468, 582, 508, 5615, 287, 257, 1402, 3240, 13, 679, 373, 257, 1310],
+    "prefix": "Once there was a kind old man who lived in a small town. He was a little",
+    "A_id": 2933,
+    "A_p": 0.4840022623538971,
+    "A_text": " boy",
+    "B_id": 2576,
+    "B_p": 0.4630536437034607,
+    "B_text": " girl",
+    "original_case_id": 54
+  }
+]

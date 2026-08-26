@@ -1,0 +1,4 @@
+[
+  {"case":49,"A":" town","B":" village","B_rank_latejs":2,"selected_top3":[5318,7404,1524],"B_selected":true,"base_B_p":0.16461960971355438,"post_B_p":0.020255429670214653,"final_B_p":0.6227981448173523,"B_recovery_fraction":4.173768832173241,"entry_KL_post_to_final":0.9682596325874329,"steps":2},
+  {"case":54,"A":" boy","B":" girl","B_rank_latejs":3,"selected_top3":[5141,3516,2576],"B_selected":true,"base_B_p":0.4630536437034607,"post_B_p":0.005540100857615471,"final_B_p":0.7421643137931824,"B_recovery_fraction":1.6100599085080314,"entry_KL_post_to_final":1.3327808380126953,"steps":2}
+]

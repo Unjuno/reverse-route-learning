@@ -1,0 +1,4 @@
+{
+  "tb112":{"big":{"sft8_final_crossctx_cos":0.854,"sft20_final_crossctx_cos":0.84},"girl":{"sft8_final_crossctx_cos":0.955,"sft20_final_crossctx_cos":0.941},"Tim":{"sft8_final_crossctx_cos":0.989,"sft20_final_crossctx_cos":0.987}},
+  "tb113":{"big":{"sft8_transfer_ratio":0.468,"sft20_transfer_ratio":0.409},"girl":{"sft8_transfer_ratio":1.134,"sft20_transfer_ratio":1.094},"Tim":{"sft8_transfer_ratio":1.087,"sft20_transfer_ratio":1.037}}
+}

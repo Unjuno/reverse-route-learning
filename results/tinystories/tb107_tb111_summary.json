@@ -1,0 +1,6 @@
+{
+  "tb107_true_combined_ranks":{"Lucy":1,"see":3,"meet":6,"big":1,"forest":1,"slide":5,"village":1,"girl":1},
+  "tb108_holdout_combined_ranks":{"boy":1,"happy":1,"big_context2":3,"Tim":1},
+  "tb110_deep_controls":{"big":{"suffix_support":0.416,"combined_rank":1},"it":{"suffix_support":0.69,"combined_rank":2},"be":{"suffix_support":0.499,"combined_rank":3},"her":{"suffix_support":0.469,"combined_rank":5}},
+  "tb111_forgotten_micro":{"big":{"entry_log_gain":0.6925,"entry_kl":0.001017,"traj_nll_improve":0.0025},"it":{"entry_log_gain":0.5334,"entry_kl":0.00046,"traj_nll_improve":-0.0001},"be":{"entry_log_gain":0.7501,"entry_kl":0.000311,"traj_nll_improve":-0.0021},"her":{"entry_log_gain":0.7235,"entry_kl":0.00013,"traj_nll_improve":-0.0052}}
+}

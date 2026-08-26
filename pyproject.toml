@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reverse-route-learning"
+version = "0.1.0"
+description = "Experimental tools for discovering and reopening latent model routes suppressed by post-training."
+requires-python = ">=3.10"
+dependencies = ["torch>=2.2", "huggingface_hub>=0.24"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

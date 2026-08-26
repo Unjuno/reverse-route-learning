@@ -1,0 +1,22 @@
+[
+  {
+    "case":49,"A":" town","B":" village","selected":[5318,7404,1524],"B_selected":true,"base_B_p":0.16461960971355438,"post_B_p":0.020255429670214653,
+    "snapshots":[
+      {"kl_threshold":0.005,"step":3,"actual_KL":0.009888242930173874,"B_p":0.04459426924586296,"B_recovery_fraction":0.16859334197957912,"selected_mass":0.04501897096633911},
+      {"kl_threshold":0.01,"step":4,"actual_KL":0.01876351796090603,"B_p":0.05701227858662605,"B_recovery_fraction":0.2546119744203624,"selected_mass":0.057490233331918716},
+      {"kl_threshold":0.02,"step":5,"actual_KL":0.031234832480549812,"B_p":0.07214291393756866,"B_recovery_fraction":0.35942076664569295,"selected_mass":0.0726766511797905},
+      {"kl_threshold":0.05,"step":7,"actual_KL":0.06888169050216675,"B_p":0.11156465858221054,"B_recovery_fraction":0.6324922767170073,"selected_mass":0.11221310496330261},
+      {"kl_threshold":0.1,"step":9,"actual_KL":0.12588295340538025,"B_p":0.16367416083812714,"B_recovery_fraction":0.993450945552121,"selected_mass":0.1644318550825119}
+    ]
+  },
+  {
+    "case":54,"A":" boy","B":" girl","selected":[5141,3516,2576],"B_selected":true,"base_B_p":0.4630536437034607,"post_B_p":0.005540100857615471,
+    "snapshots":[
+      {"kl_threshold":0.005,"step":3,"actual_KL":0.008268559351563454,"B_p":0.020777594298124313,"B_recovery_fraction":0.0333050107013837,"selected_mass":0.02091648057103157},
+      {"kl_threshold":0.01,"step":4,"actual_KL":0.016886550933122635,"B_p":0.03123351000249386,"B_recovery_fraction":0.05615879474312203,"selected_mass":0.03137366846203804},
+      {"kl_threshold":0.02,"step":5,"actual_KL":0.030193887650966644,"B_p":0.045898690819740295,"B_recovery_fraction":0.08821288592045735,"selected_mass":0.04604030027985573},
+      {"kl_threshold":0.05,"step":7,"actual_KL":0.07581499218940735,"B_p":0.09147662669420242,"B_recovery_fraction":0.18783384050675508,"selected_mass":0.0916205570101738},
+      {"kl_threshold":0.1,"step":8,"actual_KL":0.11027113348245621,"B_p":0.12344695627689362,"B_recovery_fraction":0.25771227379602557,"selected_mass":0.12359112501144409}
+    ]
+  }
+]

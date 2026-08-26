@@ -1,0 +1,14 @@
+[
+  {"route":"Lily->Lucy","sft_steps":2,"closure_factor":1.6542776399728687,"suffix_support_ratio":1.8315123319625854},
+  {"route":"Lily->Lucy","sft_steps":4,"closure_factor":7.163015093659575,"suffix_support_ratio":2.3236682415008545},
+  {"route":"Lily->Lucy","sft_steps":8,"closure_factor":86.46979602127853,"suffix_support_ratio":2.574260711669922},
+  {"route":"Lily->Lucy","sft_steps":16,"closure_factor":468.0777174122954,"suffix_support_ratio":2.6177399158477783},
+  {"route":"town->village","sft_steps":2,"closure_factor":0.7735865637779397,"suffix_support_ratio":1.563624620437622},
+  {"route":"town->village","sft_steps":4,"closure_factor":1.6801019853378967,"suffix_support_ratio":1.9931172132492065},
+  {"route":"town->village","sft_steps":8,"closure_factor":8.127184285585676,"suffix_support_ratio":2.291043519973755},
+  {"route":"town->village","sft_steps":16,"closure_factor":40.84202159491851,"suffix_support_ratio":2.3549482822418213},
+  {"route":"boy->girl","sft_steps":2,"closure_factor":2.67422880242585,"suffix_support_ratio":1.6021264791488647},
+  {"route":"boy->girl","sft_steps":4,"closure_factor":9.57212204138298,"suffix_support_ratio":1.872710108757019},
+  {"route":"boy->girl","sft_steps":8,"closure_factor":83.58216855690328,"suffix_support_ratio":1.7774896621704102},
+  {"route":"boy->girl","sft_steps":16,"closure_factor":580.8081186965112,"suffix_support_ratio":1.5439190864562988}
+]
