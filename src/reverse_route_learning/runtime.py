@@ -5,6 +5,13 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+# TinyStories-8M alternates global and local GPT-Neo attention. The local
+# attention window is 256 tokens. This minimal runtime intentionally uses a
+# single causal-attention implementation; for sequences <=256 tokens it is
+# equivalent to the published local/global pattern, but it must not be used
+# beyond that range without implementing the local mask.
+MAX_EXACT_SEQUENCE = 256
+
 
 class Attention(nn.Module):
     def __init__(self, h: int = 256, heads: int = 16):
@@ -67,8 +74,12 @@ class Block(nn.Module):
 class TinyStoriesNeo(nn.Module):
     """Minimal GPT-Neo-compatible runtime for roneneldan/TinyStories-8M.
 
-    It intentionally avoids a Transformers dependency so the controlled experiments
-    operate directly on the published PyTorch state dict.
+    It intentionally avoids a Transformers dependency so the controlled
+    experiments operate directly on the published PyTorch state dict.
+
+    Important: this implementation is exact for the repository experiments,
+    whose total sequence lengths stay within TinyStories-8M's 256-token local
+    attention window. Longer sequences are rejected explicitly.
     """
 
     def __init__(self, model_path: str | Path):
@@ -110,6 +121,12 @@ class TinyStoriesNeo(nn.Module):
             ids = ids[None, :]
         _, t = ids.shape
         past_len = 0 if past is None else past[0][0].size(-2)
+        total_len = past_len + t
+        if total_len > MAX_EXACT_SEQUENCE:
+            raise ValueError(
+                f"TinyStoriesNeo minimal runtime is only exact up to {MAX_EXACT_SEQUENCE} tokens; "
+                f"requested sequence length {total_len}."
+            )
         if positions is None:
             positions = torch.arange(past_len, past_len + t, device=ids.device)
         x = self.wte(ids) + self.wpe(positions)[None, :, :]
